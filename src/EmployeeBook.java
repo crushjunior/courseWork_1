@@ -71,4 +71,101 @@ public class EmployeeBook {
             System.out.println(employee.getFullName());
         }
     }
+
+    public void increaseSalary(double percent) {
+        double newSalary;
+        for (Employee employee : employees) {
+            if (employee != null) {
+                newSalary = employee.getSalary() * percent/100 + employee.getSalary();
+                employee.setSalary(newSalary);
+            }
+        }
+    }
+
+    public void findPoorEmployeeOfDepartment(int department) {
+      int minSalary = 999999;
+        Employee employeeWithMinSalary = employees[0];
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == department) {
+                if (employee.getSalary() < minSalary) {
+                    minSalary = employee.getSalary();
+                    employeeWithMinSalary = employee;
+                }
+            }
+        }
+        System.out.println("Сотрудник с минимальной зарплатой отдела № " + department + ": " + employeeWithMinSalary.getFullName());
+    }
+
+    public void findRichEmployeeOfDepartment(int department) {
+        int maxSalary = 1;
+        Employee employeeWithMaxSalary = employees[0];
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == department) {
+                if (employee.getSalary() > maxSalary) {
+                    maxSalary = employee.getSalary();
+                    employeeWithMaxSalary = employee;
+                }
+            }
+        }
+        System.out.println("Сотрудник с максимальной зарплатой отдела № " + department + ": " + employeeWithMaxSalary.getFullName());
+    }
+
+    public void monthExpensesOfDepartment(int department) {
+        int salaryOfDepartment = 0;
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == department) {
+                salaryOfDepartment += employee.getSalary();
+            }
+        }
+        System.out.println("Сумма затрат на зарплату по отделу № " + department + ": " + salaryOfDepartment);
+    }
+
+    public void middleSalaryOfDepartment(int department) {
+        int current = 0;
+        double sumSalary = 0;
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == department) {
+                sumSalary += employee.getSalary();
+                current ++;
+            }
+        }
+        System.out.println("Средняя зарплтату по отделу № " + department + ": " + sumSalary/current);
+    }
+
+    public void increaseSalaryOfDepartment(int department, double percent) {
+        double newSalary;
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == department) {
+                newSalary = employee.getSalary() * percent/100 + employee.getSalary();
+                employee.setSalary(newSalary);
+            }
+        }
+    }
+
+    public void printEmployeesOfDepartment(int department) {
+        System.out.println("Список сотрудников отдела № " + department + ":");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == department) {
+                System.out.println("ФИО: " + employee.getFullName() + "." + " Зарплата: " + employee.getSalary() + "." + " ID: " + employee.getId());
+            }
+        }
+    }
+
+    public void employeesSalaryLessThen(int number) {
+        System.out.println("Список сотрудников, зарплата которых меньше, чем " + number + ":");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() < number) {
+                System.out.println("ID: " + employee.getId() + ". " + "ФИО: " + employee.getFullName() + ". " + "Зарплата: " + employee.getSalary());
+            }
+        }
+    }
+
+    public void employeesSalaryMoreThen(int number) {
+        System.out.println("Список сотрудников, зарплата которых больше, чем " + number + ":");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() >= number) {
+                System.out.println("ID: " + employee.getId() + ". " + "ФИО: " + employee.getFullName() + ". " + "Зарплата: " + employee.getSalary());
+            }
+        }
+    }
 }

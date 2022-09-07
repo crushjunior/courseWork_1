@@ -31,6 +31,31 @@ public class Main {
 
         System.out.println();
         employeeBook.printNamesEmployees();
+
+        employeeBook.increaseSalary(3);
+
+        System.out.println();
+        employeeBook.findPoorEmployeeOfDepartment(1);
+
+        System.out.println();
+        employeeBook.findRichEmployeeOfDepartment(1);
+
+        System.out.println();
+        employeeBook.monthExpensesOfDepartment(1);
+
+        System.out.println();
+        employeeBook.middleSalaryOfDepartment(1);
+
+        employeeBook.increaseSalaryOfDepartment(2, 5);
+        System.out.println();
+        employeeBook.printEmployeesOfDepartment(1);
+
+        System.out.println();
+        employeeBook.employeesSalaryLessThen(40000);
+
+        System.out.println();
+        employeeBook.employeesSalaryMoreThen(40000);
+
     }
 }
 
