@@ -15,13 +15,14 @@ public class EmployeeBook {
     }
 
     public void printAllEmployees() {
+        System.out.println("Список сотрудников: ");
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
             System.out.println(employee.toString());
         }
     }
 
-    public int getMonthExpenses() {
+    public double getMonthExpenses() {
         int monthExpenses = 0;
         for (Employee element : employees) {
             if (element != null) {
@@ -59,16 +60,15 @@ public class EmployeeBook {
         return employeeWithMaxSalary.getFullName();
     }
 
-    public int getMiddleSalary() {
+    public double getMiddleSalary() {
         return getMonthExpenses() / employees.length;
     }
 
     public void printNamesEmployees() {
+        System.out.println("ФИО сотрудников: ");
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
             System.out.println(employee.getFullName());
         }
     }
-
-
 }

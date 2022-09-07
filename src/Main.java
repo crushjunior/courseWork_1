@@ -14,7 +14,6 @@ public class Main {
         employeeBook.addEmployee("Жириновский Владимир Владимирович", 4, 20999);
         employeeBook.addEmployee("Маркс Карл Карлович", 5, 45699);
 
-        System.out.println("Список сотрудников:");
         employeeBook.printAllEmployees();
 
         System.out.println();
@@ -31,7 +30,7 @@ public class Main {
         System.out.println("Средняя зарплата: " + employeeBook.getMiddleSalary());
 
         System.out.println();
-        System.out.println("ФИО сотрудников: " + employeeBook.printNamesEmployees()); /* Почему ИДЕА здесь подчеркивает ошибку и просит сделать возвращающий метод??*/
+        employeeBook.printNamesEmployees();
     }
 }
 
