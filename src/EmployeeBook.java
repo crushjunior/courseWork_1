@@ -33,8 +33,8 @@ public class EmployeeBook {
     }
 
     public String findPoorEmployee() {
-        double minSalary = 999999;
-        Employee employeeWithMinSalary = employees[0];
+        double minSalary = Double.MAX_VALUE;
+        Employee employeeWithMinSalary = null;
         for (Employee employee : employees) {
             if (employee != null) {
                 if (minSalary > employee.getSalary()) {
@@ -43,12 +43,17 @@ public class EmployeeBook {
                 }
             }
         }
-        return employeeWithMinSalary.getFullName();
+        if (employeeWithMinSalary != null) {
+            return employeeWithMinSalary.getFullName();
+        } else {
+            return null;
+        }
+
     }
 
     public String findRichEmployee() {
-        double maxSalary = 1;
-        Employee employeeWithMaxSalary = employees[0];
+        double maxSalary = Double.MIN_VALUE;
+        Employee employeeWithMaxSalary = null;
         for (Employee employee : employees) {
             if (employee != null) {
                 if (maxSalary < employee.getSalary()) {
@@ -57,11 +62,26 @@ public class EmployeeBook {
                 }
             }
         }
-        return employeeWithMaxSalary.getFullName();
+        if (employeeWithMaxSalary != null) {
+            return employeeWithMaxSalary.getFullName();
+        } else {
+            return null;
+        }
+
     }
 
     public double getMiddleSalary() {
-        return getMonthExpenses() / employees.length;
+        int current = 0;
+        for (Employee employee : employees) {
+            if (employee != null) {
+                current ++;
+            }
+        }
+        if (current != 0) {
+            return getMonthExpenses() / current;
+        } else {
+            return 1;
+        }
     }
 
     public void printNamesEmployees() {
@@ -129,7 +149,7 @@ public class EmployeeBook {
                 current ++;
             }
         }
-        System.out.println("Средняя зарплтату по отделу № " + department + ": " + sumSalary/current);
+        System.out.println("Средняя зарплата по отделу № " + department + ": " + sumSalary/current);
     }
 
     public void increaseSalaryOfDepartment(int department, double percent) {
