@@ -56,6 +56,12 @@ public class Main {
         System.out.println();
         employeeBook.employeesSalaryMoreThen(40000);
 
+        employeeBook.deleteEmployee(5);
+        employeeBook.changeEmployeeSalary("Пуц", 11);
+        employeeBook.changeEmployeeDepartment("Игорь", 99);
+        employeeBook.printEmployeesByDepartments();
+
+
     }
 }
 

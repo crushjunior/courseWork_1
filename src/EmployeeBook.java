@@ -18,7 +18,11 @@ public class EmployeeBook {
         System.out.println("Список сотрудников: ");
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            System.out.println(employee.toString());
+            if (employee == null) {
+                System.out.println("Свободная ячейка");
+            } else {
+                System.out.println(employee.toString());
+            }
         }
     }
 
@@ -185,6 +189,65 @@ public class EmployeeBook {
         for (Employee employee : employees) {
             if (employee != null && employee.getSalary() >= number) {
                 System.out.println("ID: " + employee.getId() + ". " + "ФИО: " + employee.getFullName() + ". " + "Зарплата: " + employee.getSalary());
+            }
+        }
+    }
+
+    public boolean deleteEmployee(int id) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getId() == id) {
+                employees[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void changeEmployeeSalary(String fullName, double newSalary) {
+        for (Employee employee : employees) {
+            if (employee != null && employee.getFullName().contains(fullName)) {
+                employee.setSalary(newSalary);
+            }
+        }
+    }
+
+    public void changeEmployeeDepartment(String fullName, int newDepartment) {
+        for (Employee employee : employees) {
+            if (employee != null && employee.getFullName().contains(fullName)) {
+                employee.setDepartment(newDepartment);
+            }
+        }
+    }
+
+    public void printEmployeesByDepartments() {
+        System.out.println("Сотрудники отдела № 1:");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == 1) {
+                System.out.println(employee.getFullName());
+            }
+        }
+        System.out.println("Сотрудники отдела № 2:");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == 2) {
+                System.out.println(employee.getFullName());
+            }
+        }
+        System.out.println("Сотрудники отдела № 3:");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == 3) {
+                System.out.println(employee.getFullName());
+            }
+        }
+        System.out.println("Сотрудники отдела № 4:");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == 4) {
+                System.out.println(employee.getFullName());
+            }
+        }
+        System.out.println("Сотрудники отдела № 5:");
+        for (Employee employee : employees) {
+            if (employee != null && employee.getDepartment() == 5) {
+                System.out.println(employee.getFullName());
             }
         }
     }
